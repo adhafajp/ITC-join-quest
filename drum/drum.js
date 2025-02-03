@@ -96,33 +96,33 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  // 📝 Efek Teks Auto-Typing
+  // 📝 Efek Teks Auto-Typing Judul
   const words = ["Mini 🥁 Drum", "Virtual 🥁 Drum"];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let typingElement = document.querySelector("#auto-type");
+  let wordIndex = 0;
+  let charIndex = 0;
+  let typingElement = document.querySelector("#auto-type");
 
-    function type() {
-        if (charIndex < words[wordIndex].length) {
-            typingElement.textContent += words[wordIndex].charAt(charIndex);
-            charIndex++;
-            setTimeout(type, 100);
-        } else {
-            setTimeout(erase, 1000);
-        }
-    }
+  function type() {
+      if (charIndex < words[wordIndex].length) {
+          typingElement.textContent += words[wordIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, 100);
+      } else {
+          setTimeout(erase, 1000);
+      }
+  }
 
-    function erase() {
-        if (charIndex > 0) {
-            typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
-            charIndex--;
-            setTimeout(erase, 50);
-        } else {
-            wordIndex = (wordIndex + 1) % words.length;
-            setTimeout(type, 500);
-        }
-    }
+  function erase() {
+      if (charIndex > 0) {
+          typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(erase, 50);
+      } else {
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(type, 500);
+      }
+  }
 
-    type();
+  type();
 
 });
