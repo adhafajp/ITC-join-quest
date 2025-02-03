@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     l: "sounds/kick-bass.mp3"
   };
 
+  let clickCount = 0;
+
+  const clickDisplay = document.getElementById("click-count");
+  clickDisplay.innerText = `Drum clicks: ${clickCount}`;
+
   document.querySelectorAll(".drum").forEach((button) => {
     button.addEventListener("click", () => handleDrumInput(button.innerHTML));
   });
@@ -22,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (drumSounds[key]) {
       playSound(drumSounds[key]);
       buttonAnimation(key);
+      incrementClickCount();
     }
   }
 
@@ -35,6 +41,33 @@ document.addEventListener("DOMContentLoaded", function () {
     if (activeButton) {
       activeButton.classList.add("pressed");
       setTimeout(() => activeButton.classList.remove("pressed"), 100);
+    }
+  }
+
+  function incrementClickCount() {
+    clickCount++;
+    clickDisplay.innerText = `Drum clicks: ${clickCount}`;
+
+    clickDisplay.classList.add("animate","bounce");
+    
+    setTimeout(() => {
+      clickDisplay.classList.remove("animate","bounce");
+    }, 100);
+
+    if (clickCount >= 10000) {
+      clickDisplay.style.fontSize = "40px";
+    } else if (clickCount >= 500) {
+      clickDisplay.style.fontSize = "35px";
+    } else if (clickCount >= 250) {
+      clickDisplay.style.fontSize = "30px";
+    } else if (clickCount >= 100) {
+      clickDisplay.style.fontSize = "25px";
+    } else if (clickCount >= 50) {
+      clickDisplay.style.fontSize = "22px";
+    } else if (clickCount >= 20) {
+      clickDisplay.style.fontSize = "20px";
+    } else {
+      clickDisplay.style.fontSize = "18px";
     }
   }
 

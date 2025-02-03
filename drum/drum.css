@@ -50,16 +50,40 @@ body {
   font-family: "Arvo", cursive;
   text-shadow: 3px 0 var(--control-color);
 }
-#auto-type::after {
-  content: "|"; /* Simulasi efek kursor */
-  animation: blink 0.7s infinite;
-}
-
 @keyframes blink {
   50% {
       opacity: 0;
   }
 }
+#auto-type::after {
+  content: "|"; /* Simulasi efek kursor */
+  animation: blink 0.7s infinite;
+}
+
+
+
+#click-count {
+  font-size: 18px;
+  font-weight: bold;
+  transition: transform 0.05s ease, color 0.05s ease, font-size 0.3s ease;
+}
+#click-count.animate {
+  transform: scale(1.2);
+  color: #ff6347;
+}
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+#click-count.bounce {
+  animation: bounce 0.1s ease;
+}
+
+
+
+
+
 
 .theme-switch {
   height: 40px; /* Ukuran lebih kecil di mobile */
