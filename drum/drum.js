@@ -122,6 +122,15 @@ document.addEventListener("DOMContentLoaded", function () {
           .catch(() => {
             document.querySelector("#weather").innerText = "Gagal memuat cuaca";
           });
+      }, 
+      function(error) {
+        console.error("Error Geolocation:", error);
+        document.querySelector("#weather").innerText = "Gagal mendapatkan lokasi";
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0
       });
     } else {
       document.querySelector("#weather").innerText = "Geolocation tidak didukung di browser ini";
