@@ -117,16 +117,16 @@ document.addEventListener("DOMContentLoaded", function () {
             let description = data.weather[0].description;
             let city = data.name;
   
-            document.getElementById("weather").innerText = `Cuaca di ${city}: ${description}, ${temp}°C`;
+            document.querySelector("#weather").innerText = `Cuaca di ${city}: ${description}, ${temp}°C`;
           })
           .catch(() => {
-            document.getElementById("weather").innerText = "Gagal memuat cuaca";
+            document.querySelector("#weather").innerText = "Gagal memuat cuaca";
           });
       });
     } else {
-      document.getElementById("weather").innerText = "Geolocation tidak didukung di browser ini.";
+      document.querySelector("#weather").innerText = "Geolocation tidak didukung di browser ini.";
     }
-  }
+  };
   
   cuacaKita();
   
