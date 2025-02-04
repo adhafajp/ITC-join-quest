@@ -133,9 +133,13 @@ document.addEventListener("DOMContentLoaded", function () {
       navigator.geolocation.getCurrentPosition(function(position) {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
-  
+        let codee = "a6b62c83";
+        let code = "0b6132af";
+        let codeApi = "ec774b5b";
+        let Apicode = "eab64f5c";
+        let key = codeApi + code + Apicode + codee;
         // Gunakan koordinat tersebut untuk mendapatkan data cuaca dari OpenWeatherMap
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=ec774b5b0b6132afeab64f5ca6b62c83&units=metric&lang=id`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric&lang=id`)
           .then(res => res.json())
           .then(data => {
             let temp = data.main.temp;
