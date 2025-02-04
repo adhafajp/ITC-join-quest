@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 🌡️ Cuaca
   function cuacaKita() {
-    // Gunakan Geolocation API untuk mendapatkan lokasi pengguna
+    // Geolocation API
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         let lat = position.coords.latitude;
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
       });
     } else {
-      document.querySelector("#weather").innerText = "Geolocation tidak didukung di browser ini.";
+      document.querySelector("#weather").innerText = "Geolocation tidak didukung di browser ini";
     }
   };
   

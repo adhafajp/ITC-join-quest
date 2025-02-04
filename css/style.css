@@ -74,7 +74,7 @@ nav ul li a:hover {
 }
 
 .theme-switch {
-    height: 35px; /* Ukuran lebih kecil di mobile */
+    height: 35px;
     width: 35px;
     padding: 0;
     border-radius: 50%;
@@ -139,11 +139,6 @@ section {
     max-width: 600px;
 }
 
-/* @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-} */
 
 .info-box h1{
     font-size: 3.75em;
@@ -151,7 +146,7 @@ section {
     /* animation: blink 1s infinite; */
 }
 #auto-type::after {
-    content: "|"; /* Simulasi efek kursor */
+    content: "|";
     animation: blink 0.7s infinite;
 }
 
@@ -214,7 +209,7 @@ footer {
     gap: 1em;
 }
 
-#location {
+#location, #phone, #email {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -222,15 +217,17 @@ footer {
     text-decoration: none;
 }
 
-#location i {
+#location i, #phone i, #email i{
     font-size: 24px;
 }
-#location-text{
+#location-text, #phone-text, #email-text{
     transition: color 0.3s ease-in-out;
 }
-#location-text:hover{
+#location-text:hover, #phone-text:hover, #email-text:hover{
     color: var(--text-btn-dll);
 }
+
+
 
 .col-box {
     display: flex;

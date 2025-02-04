@@ -40,7 +40,8 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  /* padding-bottom: 80px; */
+  touch-action: none;
+  -ms-touch-action: none;
 }
 
 #weather {
@@ -49,7 +50,7 @@ body {
   text-align: center;
   padding: 10px;
   border-radius: 8px;
-  background: transparent; /* Tetap transparan */
+  background: transparent;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -92,7 +93,7 @@ body {
   }
 }
 #auto-type::after {
-  content: "|"; /* Simulasi efek kursor */
+  content: "|";
   animation: blink 0.7s infinite;
 }
 
@@ -117,12 +118,8 @@ body {
 }
 
 
-
-
-
-
 .theme-switch {
-  height: 40px; /* Ukuran lebih kecil di mobile */
+  height: 40px;
   width: 40px;
   padding: 0;
   border-radius: 50%;
@@ -211,27 +208,14 @@ footer .selang{
   background-image: url("images/kick.png");
 }
 
-/* .set {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  max-width: 400px;
-  margin: auto;
-} */
 .set {
   margin: 6% auto;
   justify-content: baseline;
-  /* margin-bottom: 100px; */
 }
 
 .pressed {
   box-shadow: 0 3px 4px 0 var(--one-color);
   opacity: 0.5;
-}
-
-.red {
-  color: red;
 }
 
 .drum {

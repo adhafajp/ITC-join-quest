@@ -1,15 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Link Ke Media Sosial
-    document.querySelectorAll(".btn-box .btn").forEach((btn) => {
-        btn.addEventListener("click", function () {
-            const url = btn.getAttribute("data-link");
-            if (url) {
-                window.open(url, "_blank");
-            }
-        });
-    });
-
-
     // 🌙 Mode Gelap/Terang
     let switchmode = localStorage.getItem("switchmode");
     const themeSwitch = document.querySelector(".theme-switch");
@@ -62,5 +51,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     type();
-
 });
