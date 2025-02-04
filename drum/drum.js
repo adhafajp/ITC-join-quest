@@ -96,6 +96,68 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
+  // 🌡️ Cuaca
+  // const apiKey = "ec774b5b0b6132afeab64f5ca6b62c83"; // Ganti dengan API key OpenWeatherMap kamu
+  // const lat = -6.2088; // Koordinat Jakarta
+  // const lon = 106.8456;
+
+  // function fetchWeather() {
+  //   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=id`)
+  //       .then(response => response.json())
+  //       .then(data => {
+  //           const temp = data.main.temp;
+  //           const weatherDesc = data.weather[0].description;
+  //           const city = data.name;
+  //           document.getElementById("weather").innerText = `Cuaca di ${city}: ${weatherDesc}, ${temp}°C`;
+  //       })
+  //       .catch(error => {
+  //           document.getElementById("weather").innerText = "Gagal memuat cuaca.";
+  //           console.error("Error:", error);
+  //       });
+  //   }
+
+  // fetchWeather();
+  // function suhuBro(){
+  //   fetch("http://ip-api.com/json")
+  //     .then(res => res.json())
+  //     .then(data => fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${data.lat}&lon=${data.lon}&appid=ec774b5b0b6132afeab64f5ca6b62c83&units=metric&lang=id`))
+  //     .then(res => res.json())
+  //     .then(data => document.getElementById("weather").innerText = `Cuaca di ${data.name}: ${data.weather[0].description}, ${data.main.temp}°C`)
+  //     .catch(() => document.getElementById("weather").innerText = "Gagal memuat cuaca");
+  // }
+  // suhuBro();
+
+  function cuacaKita() {
+    // Gunakan Geolocation API untuk mendapatkan lokasi pengguna
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+  
+        // Gunakan koordinat tersebut untuk mendapatkan data cuaca dari OpenWeatherMap
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=ec774b5b0b6132afeab64f5ca6b62c83&units=metric&lang=id`)
+          .then(res => res.json())
+          .then(data => {
+            let temp = data.main.temp;
+            let description = data.weather[0].description;
+            let city = data.name;
+  
+            document.getElementById("weather").innerText = `Cuaca di ${city}: ${description}, ${temp}°C`;
+          })
+          .catch(() => {
+            document.getElementById("weather").innerText = "Gagal memuat cuaca";
+          });
+      });
+    } else {
+      document.getElementById("weather").innerText = "Geolocation tidak didukung di browser ini.";
+    }
+  }
+  
+  cuacaKita();
+  
+  
+
+
   // 📝 Efek Teks Auto-Typing Judul
   const words = ["Mini 🥁 Drum", "Virtual 🥁 Drum"];
   let wordIndex = 0;
